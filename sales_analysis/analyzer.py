@@ -3,7 +3,7 @@ import pandas as pd
 print(pd)
 import sys
 from helpers import calculate_total, format_currency
-# print(sys.path)
+print(sys.path)
 # Add a folder to Python's search path
 # sys.path.append("/path/to/my/folder")
 
@@ -99,4 +99,34 @@ except:
 df
 
 
+data = pd.read_csv("data/sales.csv")
 
+totals = []
+prices = []
+
+for index, row in data.iterrows():
+        totals.append(
+            calculate_total(row["quantity"], row["price"])
+        )
+
+data["total"] = totals
+
+data
+
+product_summary = data.groupby("product")["total"].agg(revenue = "sum", average_revenue = "mean").sort_values(by= "revenue", ascending= False)
+
+total_products = data.groupby("product")[["total"]].sum().sort_values(by="total")
+
+average_products = data.groupby("product")[["total"]].mean().sort_values(by="total")
+
+total_products
+
+average_products
+product_summary
+
+# combined_products = total_products.rename(columns={"total": "total_products"}).merge(
+#     average_products.rename(columns={"total": "average_products"}),
+#     on="product"
+# )
+
+# combined_products
