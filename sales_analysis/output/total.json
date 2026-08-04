@@ -1,0 +1,18 @@
+[
+    {
+        "product":"Laptop",
+        "total":2999.97
+    },
+    {
+        "product":"Monitor",
+        "total":899.97
+    },
+    {
+        "product":"Mouse",
+        "total":449.85
+    },
+    {
+        "product":"Keyboard",
+        "total":399.95
+    }
+]
