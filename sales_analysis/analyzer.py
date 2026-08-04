@@ -124,6 +124,10 @@ total_products
 average_products
 product_summary
 
+data["total"] = data["quantity"] * data["price"]
+
+data
+
 # combined_products = total_products.rename(columns={"total": "total_products"}).merge(
 #     average_products.rename(columns={"total": "average_products"}),
 #     on="product"
